@@ -21,7 +21,7 @@
         background: #ffc;
     }
     .info {
-        background: #ddf;
+        color: #555;
     }
     .group {
         background: #333;
@@ -75,12 +75,11 @@
                     <div class="job duration"><img width="10" height="10" src="cid:{{../../images.clock.id}}" /> {{durationHuman}}</div>
                     {{/if}}
                 </th>
-                <td class="{{icon}}"><img class="icon" width="16" height="16" alt="{{icon}}" src="cid:{{iconcid}}" /></td>
                 <td class="{{icon}}">
-                    {{#each info}}<div class="info">{{.}}</div>{{/each}}
-                    {{#each success}}<div class="success">{{.}}</div>{{/each}}
-                    {{#each warning}}<div class="warning">{{.}}</div>{{/each}}
-                    {{#each error}}<div class="error code">{{stack}}</div>{{/each}}
+                    {{#each info}}<div class="info"><img width="10" height="10" src="cid:{{../../../images.info.id}}" />&nbsp;{{.}}</div>{{/each}}
+                    {{#each success}}<div class="success"><img width="10" height="10" src="cid:{{../../../images.success.id}}" />&nbsp;{{.}}</div>{{/each}}
+                    {{#each warning}}<div class="warning"><img width="10" height="10" src="cid:{{../../../images.warning.id}}" />&nbsp;{{.}}</div>{{/each}}
+                    {{#each error}}<div class="error code"><img width="10" height="10" src="cid:{{../../../images.error.id}}" />&nbsp;{{stack}}</div>{{/each}}
                 </td>
             </tr>
         {{/each}}
