@@ -71,7 +71,7 @@ module.exports = function(jobs) {
     let totals = countableElements.map(el => {
         return {
             el: el,
-            total: jobs.reduce((total, j) => total + (j.icon===el)?1:0, 0)
+            total: jobs.reduce((total, j) => total + ((j.icon===el)?1:0), 0)
         };
     }).reduce((totals, v) => {
         totals[v.el] = v.total;
