@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+    body, table {
+        font-family: Calibri, Arial;
+        font-size: 11pt;
+    }
+    .error {
+        background: #fcc;
+    }
+    .code {
+        white-space: pre;
+        font-family: 'Anonymous Pro', 'Source Code Pro', Consolas, 'Courier New', monospace;
+        font-size: 9pt;
+    }
+    .success {
+        background: #dfd;
+    }
+    .warning {
+        background: #ffc;
+    }
+    .info {
+        background: #ddf;
+    }
+    .group {
+        background: #333;
+        color: white;
+        text-align: left;
+    }
+    .icon {
+        display: block;
+    }
+    .job {
+        text-align: left;
+    }
+    .job.name {
+        font-weight: bold;
+    }
+    .job.description {
+        font-weight: normal;
+        font-style: italic;
+        font-size: 10pt;
+    }
+    .job.duration {
+        font-size: 9pt;
+        font-weight: normal;
+        color: #888;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    td, th {
+        border: 1px solid #333;
+        padding: 5px;
+    }
+    .jobinfo {
+        width: 200px;
+    }
+    </style>
+</head>
+<body>
+<table border="1">
+    {{#each groupedJobs}}
+        <tr>
+            <th colspan="3" class="group">{{group}}</th>
+        </tr>
+        {{#each jobs}}
+            <tr>
+                <th class="jobinfo {{icon}}">
+                    <div class="job name">{{name}}</div>
+                    <div class="job description">{{description}}</div>
+                    {{#if duration}}
+                    <div class="job duration"><img width="10" height="10" src="cid:{{../../images.clock.id}}" /> {{durationHuman}}</div>
+                    {{/if}}
+                </th>
+                <td class="{{icon}}"><img class="icon" width="16" height="16" alt="{{icon}}" src="cid:{{iconcid}}" /></td>
+                <td class="{{icon}}">
+                    {{#each info}}<div class="info">{{.}}</div>{{/each}}
+                    {{#each success}}<div class="success">{{.}}</div>{{/each}}
+                    {{#each warning}}<div class="warning">{{.}}</div>{{/each}}
+                    {{#each error}}<div class="error code">{{stack}}</div>{{/each}}
+                </td>
+            </tr>
+        {{/each}}
+    {{/each}}
+</table>
+</body>
+</html>
