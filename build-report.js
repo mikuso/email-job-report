@@ -83,7 +83,7 @@ module.exports = function(jobs) {
     };
 
     for (let el of countableElements) {
-        if (totals[el] > 0) {
+        if (jobs.find(j => j[el].length > 0)) {
             images[el] = {id: `${uuid.v4()}@email-job-report`, path: `./template/${el}.png`};
         }
     }
