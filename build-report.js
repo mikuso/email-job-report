@@ -79,14 +79,14 @@ module.exports = function(jobs) {
     }, {});
 
     let images = {
-        'success': {id: `${uuid.v4()}@email-job-report`, path: './template/success.png'},
-        'warning': {id: `${uuid.v4()}@email-job-report`, path: './template/warning.png'},
-        'error': {id: `${uuid.v4()}@email-job-report`, path: './template/error.png'},
-        'info': {id: `${uuid.v4()}@email-job-report`, path: './template/info.png'},
         'clock': {id: `${uuid.v4()}@email-job-report`, path: './template/clock.png'}
     };
 
-    jobs.forEach(j => j.iconcid = images[j.icon].id);
+    for (let el of countableElements) {
+        if (totals[el] > 0) {
+            images[el] = {id: `${uuid.v4()}@email-job-report`, path: `./template/${el}.png`},
+        }
+    }
 
     let html = EmailReportTemplate({jobs, totals, images, groupedJobs});
 
