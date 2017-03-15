@@ -1,6 +1,6 @@
 {
   "name": "email-job-report",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "A simple way to send an HTML formatted email with a table of job results",
   "main": "index.js",
   "scripts": {
